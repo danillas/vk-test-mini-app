@@ -1,0 +1,10 @@
+export { default as coins } from "./ui/coins.svg";
+export { default as substract } from "./ui/subtract.svg";
+export { default as bars } from "./ui/bars.svg";
+export { default as logo } from "./ui/logo.svg";
+export { default as photo } from "./Photo.jpg";
+export { default as more } from "./ui/more.svg";
+export { default as share } from "./ui/share.svg";
+export { default as verify } from "./ui/verify.svg";
+export { default as like } from "./ui/like.svg";
+export { default as union } from "./ui/union.svg";

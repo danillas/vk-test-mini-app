@@ -1,0 +1,83 @@
+// USER VARIABLES SECTION
+
+$accent: #205af1; // Accent Color
+$positive: #00e4d7;
+$textcolor: #333; // Text Color
+
+$fontsize: 16px; // Body Font Size
+$system: -apple-system, BlinkMacSystemFont, Arial, sans-serif; // System Font Family
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl) {
+  @font-face {
+    font-family: $fname;
+    font-style: $fstyle;
+    font-weight: $fweight;
+    // font-display: swap; // Uncomment to initially display system fonts
+    src: local($fname), url($furl) format("woff2");
+  }
+}
+
+@include font("SF Pro", normal, 400, "../fonts/SFProDisplay-Regular.woff2");
+@include font("SF Pro", normal, 600, "../fonts/SFProDisplay-Medium.woff2");
+@include font("SF Pro", normal, 700, "../fonts/SFProDisplay-Semibold.woff2");
+@include font("TT Commons", normal, 800, "../fonts/TTCommons-Bold.woff2");
+
+// GENERAL DOCUMENT STYLES
+
+::placeholder {
+  color: #666;
+}
+
+::selection {
+  background-color: $accent;
+  color: #fff;
+}
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+input,
+textarea {
+  outline: none;
+  &:focus:required:invalid {
+    border-color: red;
+  }
+  &:required:valid {
+    border-color: green;
+  }
+}
+img {
+  pointer-events: none;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style-type: none;
+}
+h1,
+a,
+p,
+ul,
+li {
+  margin: 0px;
+  padding: 0px;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+body {
+  min-width: 320px;
+  position: relative;
+  line-height: 1.65;
+  overflow-x: hidden;
+  color: $textcolor;
+  background-color: #333;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}

@@ -1,0 +1,413 @@
+@import "config";
+
+// CUSTOM USER STYLES & IMPORTS
+
+.container {
+  height: 667px;
+  width: 375px;
+  background-color: #fff;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  //align-items: center;
+  //justify-content: center;
+}
+
+.top-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  //background-color: #000;
+  ul {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 56px;
+    li {
+      width: 100%;
+      padding: 5px 15px;
+    }
+  }
+  &_messenger {
+    border-top: 1px solid rgba(0, 0, 0, 0.16);
+  }
+}
+
+.top-bar__link {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+}
+.top-bar_profile {
+  .top-bar__link {
+    &_active path {
+      stroke: $accent;
+    }
+  }
+}
+.top-bar_main {
+  .top-bar__link {
+    &_active path {
+      fill-opacity: 1;
+      stroke: none;
+      fill: #fff;
+    }
+    &:not(.top-bar__link_active) {
+      opacity: 0.24;
+    }
+  }
+}
+.top-bar_messenger {
+  .top-bar__link {
+    &_active path {
+      fill: $accent;
+    }
+  }
+}
+.content {
+  //position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  &__top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 25px;
+  }
+  &__bottom {
+    padding: 0 25px;
+    .row:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+  &__no-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 311px;
+    margin: 0 auto;
+    h1 {
+      color: $accent;
+      font-family: "TT Commons";
+      font-size: 28px;
+      line-height: 34px;
+      margin: 24px 0;
+    }
+    p {
+      color: #9093a3;
+      font-family: "SF Pro";
+      font-size: 15px;
+      line-height: 20px;
+      text-align: center;
+      letter-spacing: -0.24px;
+      padding: 0 30px;
+    }
+  }
+}
+.avatar {
+  margin-bottom: 40px;
+  &__name {
+    font-size: 26px;
+    color: $accent;
+    font-family: "TT Commons";
+    text-align: center;
+  }
+  &__image {
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 50%;
+    background: url("../images/src/ui/avatar_stroke.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    img {
+      margin: 0 auto;
+      display: block;
+      border: 1px solid transparent;
+      border-radius: 50%;
+    }
+  }
+}
+.rating {
+  progress {
+    display: block;
+    height: 8px;
+    width: 296px;
+    color: #ff4d6a;
+    background-color: #f5f6fa;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 100px;
+    margin-bottom: 10px;
+  }
+  ::-webkit-progress-bar {
+    background: #f5f6fa;
+    border-radius: 100px;
+  }
+  ::-webkit-progress-value {
+    background: #ff4d6a;
+    border-radius: 100px;
+  }
+  ::-moz-progress-bar {
+    background: #f5f6fa;
+    border-radius: 100px;
+  }
+  &__title {
+    color: #ff4d6a;
+    font-family: "SF Pro";
+    font-weight: 800;
+    font-size: 17px;
+    letter-spacing: -0.41px;
+    line-height: 22px;
+  }
+}
+
+.coins,
+.potion {
+  border-radius: 16px;
+  padding: 16px 16px 12px;
+  border: 1px solid transparent;
+  width: 50%;
+  height: 100px;
+  font-family: "SF Pro";
+  &__title {
+    font-size: 13px;
+    letter-spacing: -0.08px;
+    font-weight: 400;
+    line-height: 18px;
+  }
+  &__subtitle {
+    font-size: 17px;
+    letter-spacing: -0.41px;
+    font-weight: 700;
+    line-height: 22px;
+  }
+}
+.coins {
+  background-color: $positive;
+  margin-right: 16px;
+  &__title {
+    color: #fff;
+  }
+  &__subtitle {
+    color: $accent;
+  }
+}
+
+.potion {
+  background-color: $accent;
+  &__title {
+    color: #fff;
+    opacity: 0.48;
+  }
+  &__subtitle {
+    color: $positive;
+  }
+}
+
+.edit-profile {
+  width: 100%;
+  margin-right: 16px;
+}
+
+.stats {
+  a {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    background: linear-gradient(144.43deg, #00e4d7 0%, #205af1 79.21%),
+      linear-gradient(144.43deg, #17e6d4 0%, #4560e6 79.21%);
+  }
+  img {
+    margin: 0 auto;
+  }
+}
+.button_stroke {
+  display: block;
+  color: $accent;
+  border: 2px solid $accent;
+  border-radius: 16px;
+  font-family: "SF Pro";
+  font-weight: 700;
+  text-align: center;
+  font-size: 17px;
+  letter-spacing: -0.41px;
+  line-height: 22px;
+  padding: 11.5px 30px;
+}
+
+//MAIN PAGE
+.heading {
+  position: absolute;
+  top: 30px;
+  left: 10px;
+  z-index: 99;
+}
+.photos {
+  display: block;
+  height: 100%;
+  width: 100%;
+  img {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    min-height: 100%;
+    margin: 0 auto;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    width: 100%;
+    height: 162px;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.52) 100%
+    );
+    transform: rotate(-180deg);
+    z-index: 1;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: 0;
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+    z-index: 1;
+  }
+}
+
+.steps {
+  position: absolute;
+  top: 70px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 10px;
+  z-index: 9;
+  &__item {
+    display: block;
+    height: 3px;
+    flex-grow: 1;
+    border-radius: 10px;
+    background-color: #fff;
+    opacity: 40%;
+  }
+  &__item:not(:last-child) {
+    margin-right: 5px;
+  }
+}
+
+.person-info {
+  display: block;
+  position: absolute;
+  bottom: 76px;
+  z-index: 2;
+  width: 100%;
+  padding: 0 20px 0 17px;
+  &__name {
+    display: flex;
+    align-items: flex-end;
+    color: #fff;
+    font-family: "TT Commons";
+    font-size: 22px;
+    line-height: 24px;
+    img.verify {
+      margin: 0 10px;
+    }
+  }
+  &__job {
+    color: #f5f6fa;
+    font-family: "SF Pro";
+    font-weight: 400;
+    opacity: 0.5;
+    letter-spacing: 0.41px;
+    font-size: 15px;
+    margin: 2px 0;
+  }
+  &__education,
+  &__location {
+    color: #fff;
+    font-family: "SF Pro";
+    font-weight: 400;
+    letter-spacing: -0.24px;
+    font-size: 15px;
+    line-height: 18px;
+    &::before {
+      content: "";
+      display: inline-block;
+      height: 16px;
+      width: 16px;
+      margin-right: 12px;
+      background-repeat: no-repeat;
+    }
+  }
+  &__education {
+    margin-bottom: 7px;
+    &::before {
+      background-image: url("../images/src/ui/stud.svg");
+    }
+  }
+  &__location {
+    margin-bottom: 10px;
+    &::before {
+      background-image: url("../images/src/ui/geo.svg");
+      background-position: 2px 0;
+    }
+  }
+  &__status {
+    position: relative;
+    width: 68px;
+    height: 26px;
+    text-align: center;
+    color: #fff;
+    font-family: "SF Pro";
+    font-weight: 400;
+    letter-spacing: -0.24px;
+    font-size: 15px;
+    p {
+      display: block;
+      position: relative;
+      z-index: 2;
+    }
+    .gradient {
+      display: block;
+      position: absolute;
+      top: 0;
+      z-index: 1;
+      background: linear-gradient(0deg, #00e4d7, #00e4d7);
+      opacity: 0.5;
+      width: 100%;
+      height: 100%;
+      border-radius: 7px;
+    }
+  }
+  .like-button {
+    position: absolute;
+    display: flex;
+    background: linear-gradient(0deg, #205af1, #205af1), #4560e6;
+    border-radius: 100px;
+    height: 48px;
+    width: 48px;
+    justify-content: center;
+    right: 20px;
+    bottom: 0;
+  }
+}
