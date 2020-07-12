@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import bridge from "@vkontakte/vk-bridge";
-import { View, ScreenSpinner } from "@vkontakte/vkui";
-
+import { View } from "@vkontakte/vkui";
+import { usePlatform } from "@vkontakte/vkui";
 import "@vkontakte/vkui/dist/vkui.css";
 import "./scss/app.scss";
 
@@ -13,7 +13,6 @@ import Messenger from "./panels/Messenger";
 const App = () => {
   const [activePanel, setActivePanel] = useState("profile");
   const [fetchedUser, setUser] = useState(null);
-  const [popout, setPopout] = useState(<ScreenSpinner size="large" />);
 
   useEffect(() => {
     bridge.subscribe(({ detail: { type, data } }) => {
@@ -26,7 +25,6 @@ const App = () => {
     async function fetchData() {
       const user = await bridge.send("VKWebAppGetUserInfo");
       setUser(user);
-      setPopout(null);
     }
     fetchData();
   }, []);
@@ -35,8 +33,10 @@ const App = () => {
     setActivePanel(e.currentTarget.dataset.to);
   };
 
+  const platform = usePlatform();
+
   return (
-    <View activePanel={activePanel} popout={popout}>
+    <View activePanel={activePanel}>
       <Helmet>
         <meta
           name="viewport"
@@ -45,7 +45,7 @@ const App = () => {
       </Helmet>
 
       <Profile id="profile" go={go} />
-      <Main id="main" go={go} />
+      <Main id="main" go={go} platform={platform} />
       <Messenger id="messenger" go={go} />
     </View>
   );

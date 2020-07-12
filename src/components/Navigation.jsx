@@ -3,7 +3,7 @@ import { FixedLayout, Link } from "@vkontakte/vkui";
 
 const Navigation = ({ activePanel, go }) => (
   <FixedLayout vertical="bottom">
-    <nav className={`top-bar top-bar_${activePanel}`}>
+    <nav className={`tab-bar tab-bar_${activePanel}`}>
       <ul>
         <li>
           <Link
@@ -11,8 +11,8 @@ const Navigation = ({ activePanel, go }) => (
             data-to="profile"
             className={
               activePanel === "profile"
-                ? "top-bar__link top-bar__link_active"
-                : "top-bar__link"
+                ? "tab-bar__link tab-bar__link_active"
+                : "tab-bar__link"
             }
           >
             <svg
@@ -36,8 +36,8 @@ const Navigation = ({ activePanel, go }) => (
             data-to="main"
             className={
               activePanel === "main"
-                ? "top-bar__link top-bar__link_active"
-                : "top-bar__link"
+                ? "tab-bar__link tab-bar__link_active"
+                : "tab-bar__link"
             }
           >
             <svg
@@ -60,8 +60,8 @@ const Navigation = ({ activePanel, go }) => (
             data-to="messenger"
             className={
               activePanel === "messenger"
-                ? "top-bar__link top-bar__link_active"
-                : "top-bar__link"
+                ? "tab-bar__link tab-bar__link_active"
+                : "tab-bar__link"
             }
           >
             <svg
