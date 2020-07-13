@@ -25,11 +25,13 @@ class Main extends React.Component {
       "--safe-area-inset-top"
     );
     topPaddingStored = parseInt(sat);
-    console.log(topPaddingStored);
+    //console.log("els", els);
+    //console.log("topPaddingStored:", topPaddingStored);
 
     if (els.length > 0) {
       heightStored = window.innerHeight;
-      console.log(heightStored);
+      console.log("heightStored", heightStored);
+      console.log("els[0].offsetTop", els[0].offsetTop);
       this.setState({
         height: heightStored,
         topPadding: topPaddingStored,
@@ -46,6 +48,7 @@ class Main extends React.Component {
 
   componentDidMount() {
     this.calcPaddings();
+    console.log("bottomPadding", this.state.bottomPadding);
   }
 
   render() {
@@ -80,7 +83,10 @@ class Main extends React.Component {
               style={{ backgroundImage: "url(" + photo + ")", height: "100%" }}
             ></div>
           </div>
-          <div className="person-info">
+          <div
+            className="person-info"
+            style={{ bottom: this.state.bottomPadding + "px" }}
+          >
             <div className="person-info__more">
               <Link href="#">
                 <img src={more} alt="" />
