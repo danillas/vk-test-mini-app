@@ -15,7 +15,7 @@ class Main extends React.Component {
     this.state = {
       height: heightStored,
       topPadding: topPaddingStored,
-      bottomPadding: 48,
+      bottomPadding: 56,
     };
   }
 
@@ -25,17 +25,14 @@ class Main extends React.Component {
       "--safe-area-inset-top"
     );
     topPaddingStored = parseInt(sat);
-    //console.log("els", els);
-    //console.log("topPaddingStored:", topPaddingStored);
 
     if (els.length > 0) {
       heightStored = window.innerHeight;
-      console.log("heightStored", heightStored);
-      console.log("els[0].offsetTop", els[0].offsetTop);
+
       this.setState({
         height: heightStored,
         topPadding: topPaddingStored,
-        bottomPadding: window.innerHeight - els[0].offsetTop,
+        bottomPadding: heightStored - els[0].offsetTop,
       });
     } else {
       heightStored = window.innerHeight;
@@ -47,8 +44,22 @@ class Main extends React.Component {
   };
 
   componentDidMount() {
-    this.calcPaddings();
-    console.log("bottomPadding", this.state.bottomPadding);
+    setTimeout(() => {
+      this.calcPaddings();
+      console.log("state", this.state);
+    }, 0);
+    setTimeout(() => {
+      this.calcPaddings();
+      console.log("state", this.state);
+    }, 10);
+    setTimeout(() => {
+      this.calcPaddings();
+      console.log("state", this.state);
+    }, 200);
+    setTimeout(() => {
+      this.calcPaddings();
+      console.log("state", this.state);
+    }, 1000);
   }
 
   render() {
@@ -85,7 +96,7 @@ class Main extends React.Component {
           </div>
           <div
             className="person-info"
-            style={{ bottom: this.state.bottomPadding + "px" }}
+            style={{ bottom: this.state.bottomPadding + 18 + "px" }}
           >
             <div className="person-info__more">
               <Link href="#">
